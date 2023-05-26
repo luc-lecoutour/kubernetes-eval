@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-const URL = 'http://localhost:5400'
+const URL = 'http://141.95.163.102:5000'
 function App() {
   const [state, setState] = useState([])
   const [newV, setnewV] = useState('')

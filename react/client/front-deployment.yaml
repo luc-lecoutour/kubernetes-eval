@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-luc
+  labels:
+    app: front-luc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-luc
+  template:
+    metadata:
+      labels:
+        app: front-luc
+    spec:
+      imagePullSecrets:
+        - name: mysecret
+      containers:
+        - name: front
+          image: cloud.canister.io:5000/luke34/front:front
+
