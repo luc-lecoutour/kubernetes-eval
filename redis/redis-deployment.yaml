@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-luc
+  labels:
+    app: redis-luc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-luc
+  template:
+    metadata:
+      labels:
+        app: redis-luc
+    spec:
+      containers:
+        - name: redis-luc
+          image: redis
+          ports:
+            - containerPort: 6379
+

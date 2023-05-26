@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-redis-service-luc
+spec:
+  selector:
+    app: node-redis-luc
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: LoadBalancer
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service-luc
+spec:
+  selector:
+    app: redis-luc
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+  type: LoadBalancer
+
+

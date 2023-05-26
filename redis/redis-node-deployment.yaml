@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-redis-luc
+  labels:
+    app: node-redis-luc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-redis-luc
+  template:
+    metadata:
+      labels:
+        app: node-redis-luc
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: node-redis-luc
+          image: cloud.canister.io:5000/arhturescriou/node-redis
+          ports:
+            - containerPort: 5000
+          env:
+            - name: PORT
+              value: "5000"
+            - name: REDIS_URL
+              value: "redis://redis-service-luc:6379"
